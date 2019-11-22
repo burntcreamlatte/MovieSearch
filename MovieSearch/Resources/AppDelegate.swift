@@ -14,7 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        MovieController.fetchMovies(searchTerm: "The Big Lebowski") { (result) in
+            switch result {
+            case .success(let movie):
+                print(movie)
+            case .failure(let error):
+                print("ERROR in \(#function) : \(error), \n---\n \(error.localizedDescription)")
+            }
+        }
         return true
     }
 
