@@ -44,8 +44,8 @@ class MovieController {
     }
     static func fetchPosterAndUpdateUI(for movie: Movie, completion: @escaping (Result<UIImage, MovieAPIError>) -> Void) {
         guard let url = URL(string: URLConstant.imageURL) else { completion(.failure(.invalidURL)); return }
-        let finalImageURL = url.appendingPathComponent(URLConstant.imageURL)
-        print(url)
+        let finalImageURL = url.appendingPathComponent(movie.posterPath)
+        print(finalImageURL)
         URLSession.shared.dataTask(with: finalImageURL) { (data, _, error) in
             DispatchQueue.main.async {
                 if let error = error {

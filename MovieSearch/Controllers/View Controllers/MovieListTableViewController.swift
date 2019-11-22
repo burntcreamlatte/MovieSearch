@@ -21,7 +21,6 @@ class MovieListTableViewController: UITableViewController {
         }
     }
     
-    
     // MARK: Lifecycle Methods
     
     override func viewDidLoad() {
