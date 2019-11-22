@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--MovieSearch-->
         <scene sceneID="Ce6-6L-hY7">
             <objects>
                 <tableViewController id="dmg-CJ-zTT" customClass="MovieListTableViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -14,19 +14,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="BcE-OV-jbq">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a movie..." id="BcE-OV-jbq">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="88" id="TOn-0D-jtr" customClass="MovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="88"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="TOn-0D-jtr" customClass="MovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="189.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TOn-0D-jtr" id="E9o-89-khS">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="189.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1CC-ur-kSz">
+                                            <rect key="frame" x="20" y="11" width="374" height="167.5"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mUf-eg-F48">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="167"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="LyE-x7-yjE">
+                                                    <rect key="frame" x="128" y="0.0" width="246" height="81"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(title)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnL-n8-rKW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="43.5" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(rating)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cC-Ty-F2d">
+                                                            <rect key="frame" x="0.0" y="32.5" width="60" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalCompressionResistancePriority="752" text="(desc)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvI-19-lDb">
+                                                            <rect key="frame" x="0.0" y="65" width="39" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1CC-ur-kSz" firstAttribute="leading" secondItem="E9o-89-khS" secondAttribute="leadingMargin" id="62I-tu-o51"/>
+                                        <constraint firstItem="1CC-ur-kSz" firstAttribute="top" secondItem="E9o-89-khS" secondAttribute="topMargin" id="AUr-jy-lSq"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="1CC-ur-kSz" secondAttribute="trailing" id="E50-CQ-pn4"/>
+                                        <constraint firstItem="1CC-ur-kSz" firstAttribute="bottom" secondItem="E9o-89-khS" secondAttribute="bottomMargin" id="ilJ-bk-7zk"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieDescLabel" destination="NvI-19-lDb" id="Y1w-qC-eGU"/>
+                                    <outlet property="movieRatingLabel" destination="8cC-Ty-F2d" id="KHI-tl-WMc"/>
+                                    <outlet property="movieTitleLabel" destination="EnL-n8-rKW" id="N7b-CS-2gl"/>
+                                    <outlet property="posterImageView" destination="mUf-eg-F48" id="RtS-jP-ahu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,7 +79,7 @@
                             <outlet property="delegate" destination="dmg-CJ-zTT" id="Mca-6z-HWG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="sZI-K3-85G"/>
+                    <navigationItem key="navigationItem" title="MovieSearch" id="sZI-K3-85G"/>
                     <connections>
                         <outlet property="movieSearchBar" destination="BcE-OV-jbq" id="urW-Ot-dGg"/>
                     </connections>

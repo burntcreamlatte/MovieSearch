@@ -6,7 +6,8 @@
 //  Copyright © 2019 Aaron Shackelford. All rights reserved.
 //
 
-import Foundation
+//importing UIKit for UIImage as UIKit contains foundation; could only import UIKit.UIImage along with Foundation but with the extent of this app either is fine
+import UIKit
 
 class MovieController {
     
@@ -39,12 +40,30 @@ class MovieController {
                 print("ERROR in \(#function) : \(error), \n---\n \(error.localizedDescription)")
             }
         }.resume()
+        
+    }
+    static func fetchPosterAndUpdateUI(for movie: Movie, completion: @escaping (Result<UIImage, MovieAPIError>) -> Void) {
+        guard let url = URL(string: URLConstant.imageURL) else { completion(.failure(.invalidURL)); return }
+        let finalImageURL = url.appendingPathComponent(URLConstant.imageURL)
+        print(url)
+        URLSession.shared.dataTask(with: finalImageURL) { (data, _, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("ERROR in \(#function) : \(error), \n---\n \(error.localizedDescription)")
+                    completion(.failure(.communicationError)); return
+                }
+                guard let data = data else { completion(.failure(.noData)); return }
+                guard let posterImage = UIImage(data: data) else { completion(.failure(.unableToDecode)); return }
+                completion(.success(posterImage))
+            }
+        }.resume()
     }
     enum MovieAPIError: LocalizedError {
         case invalidURL
         case communicationError
         case noData
         case noMovies
+        case unableToDecode
     }
 }
     

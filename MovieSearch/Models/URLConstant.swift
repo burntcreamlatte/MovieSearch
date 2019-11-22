@@ -10,6 +10,7 @@ import Foundation
 
 struct URLConstant: Codable {
     static let baseURL = "https://api.themoviedb.org/"
+    static let imageURL = "http://image.tmdb.org/t/p/w500/"
     static let searchComponent = "search"
     static let movieComponent = "movie"
     static let movieQuery = "query"

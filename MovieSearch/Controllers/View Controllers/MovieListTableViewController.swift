@@ -12,6 +12,7 @@ class MovieListTableViewController: UITableViewController {
 
     @IBOutlet weak var movieSearchBar: UISearchBar!
     
+    //SoT array
     var movies: [Movie] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -39,9 +40,9 @@ class MovieListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
         let movie = self.movies[indexPath.row]
         cell.movieLanding = movie
-
         return cell
     }
 }
@@ -54,6 +55,7 @@ extension MovieListTableViewController: UISearchBarDelegate {
             switch result {
             case .success(let movies):
                 self.movies = movies
+                
             case .failure(let error):
                 print("ERROR in \(#function) : \(error), \n---\n \(error.localizedDescription)")
             }

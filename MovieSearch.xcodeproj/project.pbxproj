@@ -96,8 +96,8 @@
 		AB99A87023883EBA00C07AD2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AB99A87523883ED700C07AD2 /* Model Controllers */,
 				AB99A87423883ED100C07AD2 /* View Controllers */,
+				AB99A87523883ED700C07AD2 /* Model Controllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,8 +105,8 @@
 		AB99A87123883EBF00C07AD2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AB99A87323883ECB00C07AD2 /* Storyboards */,
 				AB99A87223883EC500C07AD2 /* Custom Views */,
+				AB99A87323883ECB00C07AD2 /* Storyboards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
